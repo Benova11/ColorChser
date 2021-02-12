@@ -216,8 +216,8 @@ GameObject:
   - component: {fileID: 522095561}
   - component: {fileID: 522095560}
   - component: {fileID: 522095559}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 8
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 1394269755}
   - component: {fileID: 1394269754}
   - component: {fileID: 1394269753}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,8 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b910efd304e7484193c099a14075f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpForce: 5
+  moveSpeed: 5
+  jumpForce: 15
+  isGrounded: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!61 &1394269754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -385,7 +389,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
