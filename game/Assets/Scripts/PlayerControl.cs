@@ -15,24 +15,26 @@ public class PlayerControl : MonoBehaviour
     
     private Collider2D myCollider;
 
+    private Animator myAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-
         myCollider = GetComponent<Collider2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         isGrounded = Physics2D.IsTouchingLayers(myCollider, whatIsGround);
-
         myRigidBody.velocity = new Vector2(moveSpeed,myRigidBody.velocity.y);
 
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
             myRigidBody.velocity += new Vector2(myRigidBody.velocity.x,jumpForce);
         }
-        
+        myAnimator.SetFloat("Speed",myRigidBody.velocity.x);
+        myAnimator.SetBool("Grounded",isGrounded);
     }
 }
