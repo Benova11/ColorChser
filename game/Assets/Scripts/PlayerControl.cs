@@ -37,4 +37,10 @@ public class PlayerControl : MonoBehaviour
         myAnimator.SetFloat("Speed",myRigidBody.velocity.x);
         myAnimator.SetBool("Grounded",isGrounded);
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.collider.name == "BottomBoundary"){
+            Destroy(gameObject);
+        }
+    }
 }
